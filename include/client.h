@@ -5,13 +5,31 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Fri Jan 29 10:01:08 2016 Antoine Baché
-** Last update Sun Jan 31 01:06:38 2016 Antoine Baché
+** Last update Mon Feb  1 09:02:44 2016 Antoine Baché
 */
 
 #ifndef CLIENT_H_
 # define CLIENT_H_
 
 # include "common.h"
+
+typedef	struct	s_bitfield
+{
+  unsigned int 	one : 1;
+  unsigned int 	two: 1;
+  unsigned int 	three: 1;
+  unsigned int 	four: 1;
+  unsigned int 	five: 1;
+  unsigned int 	six: 1;
+  unsigned int 	seven: 1;
+  unsigned int 	eight: 1;
+}		t_bitfield;
+
+typedef union	u_msg
+{
+  t_bitfield	bits;
+  char		message;
+}		t_msg;
 
 void	ping_pong(void);
 int	check_pid(char *);

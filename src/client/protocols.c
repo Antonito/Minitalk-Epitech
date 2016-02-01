@@ -5,14 +5,14 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Fri Jan 29 10:41:38 2016 Antoine Baché
-** Last update Mon Feb  1 09:00:28 2016 Antoine Baché
+** Last update Mon Feb  1 10:09:47 2016 Antoine Baché
 */
 
 #include "client.h"
 
 void	sig_hand(UNUSED int sig)
 {
-  usleep(0);
+  usleep(1);
 }
 
 void	start_protocol(int pid, t_msg *start)

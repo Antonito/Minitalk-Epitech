@@ -5,42 +5,40 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Fri Jan 29 10:03:58 2016 Antoine Baché
-** Last update Sun Feb  7 14:05:11 2016 Antoine Baché
+** Last update Sun Feb  7 16:43:14 2016 Antoine Baché
 */
 
 #include "server.h"
 
-void	prepare_sig(struct sigaction *sig1, struct sigaction *sig2)
+t_infos	g_infos;
+
+void	set_infos(void)
 {
-  my_bzero(sig1, sizeof(struct sigaction));
-  my_bzero(sig2, sizeof(struct sigaction));
-  sig1->sa_flags = SA_SIGINFO | SA_RESTART;
-  sig2->sa_flags = SA_SIGINFO | SA_RESTART;
-  sig1->sa_handler = NULL;
-  sig2->sa_handler = NULL;
-  sig1->sa_sigaction = sig_1;
-  sig2->sa_sigaction = sig_2;
+  g_infos.id = 0;
+  g_infos.pid = 0;
 }
 
-int			server(int args)
+int	server(int args)
 {
-  struct sigaction	sig1;
-  struct sigaction	sig2;
-  struct sigaction	old;
-
   if (args < 0)
     return (0);
   my_put_nbr((int)getpid());
   if (write(1, "\n", 1) < 0)
     return (1);
-  prepare_sig(&sig1, &sig2);
-  my_bzero(&old, sizeof(struct sigaction));
-  if (sigaction(SIGUSR1, &sig1, &old) < 0 ||
-      sigaction(SIGUSR2, &sig2, &old) < 0)
-    return (1);
+  set_infos();
   while (1)
     {
-      sleep(1);
+      if (g_infos.id == 0)
+	{
+	  get_c_pid();
+	  if (g_infos.pid != 0)
+	    {
+	      signal(SIGUSR1, &sig_1);
+	      signal(SIGUSR2, &sig_2);
+	    }
+	}
+      if (usleep(100000) == 0)
+	set_infos();
     }
   return (0);
 }

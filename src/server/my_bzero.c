@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sun Jan 31 02:24:11 2016 Antoine Baché
-** Last update Sun Jan 31 02:24:32 2016 Antoine Baché
+** Last update Sun Feb  7 15:55:10 2016 Antoine Baché
 */
 
 void		my_bzero(void *content, int size)

@@ -5,7 +5,7 @@
 ## Login   <bache_a@epitech.net>
 ##
 ## Started on  Fri Jan 29 09:43:20 2016 Antoine Baché
-## Last update Mon Feb  1 08:58:12 2016 Antoine Baché
+## Last update Sun Feb  7 16:55:10 2016 Antoine Baché
 ##
 
 DEBUG=			no
@@ -15,6 +15,7 @@ SRC_PREFIX=		src/client/
 SRC_FILES=		main.c		\
 			check_pid.c	\
 			protocols.c	\
+			send_pid.c	\
 			my_getnbr.c
 
 SRC_SERVER_PREFIX=	src/server/
@@ -23,15 +24,16 @@ SRC_SERVER_FILES=	main.c		\
 			response.c	\
 			my_strcmp.c	\
 			my_bzero.c	\
+			get_c_pid.c	\
 			my_put_nbr.c
 
 SRC=			$(addprefix $(SRC_PREFIX),$(SRC_FILES))
 
 SRC_SERVER=		$(addprefix $(SRC_SERVER_PREFIX),$(SRC_SERVER_FILES))
 
-NAME=			client
+NAME=			src/client/client
 
-NAME_SERVER=		server
+NAME_SERVER=		src/server/server
 
 HEAD=			-Iinclude
 

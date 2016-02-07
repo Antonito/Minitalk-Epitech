@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Fri Jan 29 10:01:08 2016 Antoine Baché
-** Last update Mon Feb  1 09:02:44 2016 Antoine Baché
+** Last update Sun Feb  7 15:34:35 2016 Antoine Baché
 */
 
 #ifndef CLIENT_H_
@@ -31,10 +31,11 @@ typedef union	u_msg
   char		message;
 }		t_msg;
 
+void	send_pid(unsigned int, unsigned int);
 void	ping_pong(void);
 int	check_pid(char *);
 int	send_msg(char *, char *);
-void	start_protocol(int, t_msg *);
+void	start_protocol(unsigned int, t_msg *);
 int	my_getnbr(char *);
 
 #endif /* !CLIENT_H_ */

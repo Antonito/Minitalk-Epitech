@@ -5,7 +5,7 @@
 ## Login   <bache_a@epitech.net>
 ##
 ## Started on  Fri Jan 29 09:43:20 2016 Antoine Baché
-## Last update Sun Feb  7 16:55:10 2016 Antoine Baché
+## Last update Mon Feb  8 00:44:20 2016 Antoine Baché
 ##
 
 DEBUG=			no
@@ -31,9 +31,9 @@ SRC=			$(addprefix $(SRC_PREFIX),$(SRC_FILES))
 
 SRC_SERVER=		$(addprefix $(SRC_SERVER_PREFIX),$(SRC_SERVER_FILES))
 
-NAME=			src/client/client
+NAME=			client/client
 
-NAME_SERVER=		src/server/server
+NAME_SERVER=		server/server
 
 HEAD=			-Iinclude
 

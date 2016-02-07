@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sun Jan 31 01:11:02 2016 Antoine Baché
-** Last update Mon Feb  1 11:49:48 2016 Antoine Baché
+** Last update Sun Feb  7 13:58:11 2016 Antoine Baché
 */
 
 #include "server.h"
@@ -24,7 +24,6 @@ void		display_char(char value)
   if (value == 1)
     msg |= (1 << (value * loop));
   --loop;
-  usleep(5);
 }
 
 void	sig_1(UNUSED int signum, siginfo_t *sig, UNUSED void *data)

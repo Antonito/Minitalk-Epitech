@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Fri Jan 29 10:03:58 2016 Antoine Baché
-** Last update Sun Jan 31 15:43:41 2016 Antoine Baché
+** Last update Sun Feb  7 14:05:11 2016 Antoine Baché
 */
 
 #include "server.h"
@@ -30,7 +30,6 @@ int			server(int args)
 
   if (args < 0)
     return (0);
-  write(1, "Server PID: ", 12);
   my_put_nbr((int)getpid());
   if (write(1, "\n", 1) < 0)
     return (1);
@@ -41,7 +40,7 @@ int			server(int args)
     return (1);
   while (1)
     {
-      pause();
+      sleep(1);
     }
   return (0);
 }

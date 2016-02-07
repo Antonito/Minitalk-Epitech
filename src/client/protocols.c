@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Fri Jan 29 10:41:38 2016 Antoine Baché
-** Last update Sun Feb  7 16:44:26 2016 Antoine Baché
+** Last update Sun Feb  7 22:30:52 2016 Antoine Baché
 */
 
 #include "client.h"
@@ -35,13 +35,14 @@ void	start_protocol(unsigned int pid, t_msg *start)
   usleep(10000);
 }
 
-int		send_msg(char *pid_char, char *msg)
+int    	send_msg(char *pid_char, char *msg)
 {
-  int		pid;
-  unsigned int	i;
-  t_msg		start;
+  int	pid;
+  int	i;
+  t_msg	start;
 
-  pid = my_getnbr(pid_char);
+  if ((pid = my_getnbr(pid_char)) <= 0)
+    return (1);
   i = -1;
   if (msg == NULL || write(1, "\n", 1) < 0)
     return (1);

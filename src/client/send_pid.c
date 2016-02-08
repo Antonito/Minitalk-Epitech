@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sun Feb  7 15:31:08 2016 Antoine Baché
-** Last update Sun Feb  7 16:18:16 2016 Antoine Baché
+** Last update Mon Feb  8 23:07:27 2016 Antoine Baché
 */
 
 #include "client.h"
@@ -21,6 +21,6 @@ void		send_pid(unsigned int pid, unsigned int c_pid)
     {
       ((c_pid & mask) ? kill(pid, SIGUSR1) : kill(pid, SIGUSR2));
       c_pid >>= 1;
-      usleep(15);
+      usleep(1000);
     }
 }

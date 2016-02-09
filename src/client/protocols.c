@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Fri Jan 29 10:41:38 2016 Antoine Baché
-** Last update Mon Feb  8 23:23:31 2016 Antoine Baché
+** Last update Mon Feb  8 23:30:17 2016 Antoine Baché
 */
 
 #include "client.h"
@@ -55,6 +55,6 @@ int    	send_msg(char *pid_char, char *msg)
     }
   start.message = 0;
   start_protocol(pid, &start);
-  usleep(150000);
+  usleep(350000);
   return (0);
 }

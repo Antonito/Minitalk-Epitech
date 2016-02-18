@@ -5,7 +5,7 @@
 ## Login   <bache_a@epitech.net>
 ##
 ## Started on  Fri Jan 29 09:43:20 2016 Antoine Baché
-## Last update Mon Feb  8 00:44:20 2016 Antoine Baché
+## Last update Thu Feb 18 15:37:29 2016 Antoine Baché
 ##
 
 DEBUG=			no
@@ -52,53 +52,23 @@ OBJ=			$(SRC:.c=.o)
 OBJ_SERVER=		$(SRC_SERVER:.c=.o)
 
 $(NAME_SERVER):	$(NAME) $(OBJ_SERVER)
-	@echo -n "[ "
-	@tput setaf 2; tput bold; echo -n "OK" ; tput sgr0
-	@echo -n " ] "
-	@echo "Compiled server"
-	@$(CC) $(OBJ_SERVER) -o $(NAME_SERVER)
+	$(CC) $(OBJ_SERVER) -o $(NAME_SERVER)
 
 $(NAME):	$(OBJ)
-ifeq ($(DEBUG), yes)
-	@tput setaf 1; tput bold
-	@echo "  ____  _____ ____  _   _  ____   __  __  ___  ____  _____ ";
-	@echo " |  _ \| ____| __ )| | | |/ ___| |  \/  |/ _ \|  _ \| ____|";
-	@echo " | | | |  _| |  _ \| | | | |  _  | |\/| | | | | | | |  _|  ";
-	@echo " | |_| | |___| |_) | |_| | |_| | | |  | | |_| | |_| | |___ ";
-	@echo " |____/|_____|____/ \___/ \____| |_|  |_|\___/|____/|_____|";
-	@echo "                                                           ";
-	@tput sgr0
-endif
-	@echo -n "[ "
-	@tput setaf 2; tput bold; echo -n "OK" ; tput sgr0
-	@echo -n " ] "
-	@echo "Compiled client"
-	@$(CC) $(OBJ) -o $(NAME)
+	$(CC) $(OBJ) -o $(NAME)
 
-%.o:	%.c
-	@echo -n "[ "
-	@tput setaf 2; tput bold; echo -n "OK" ; tput sgr0
-	@echo -n " ] "
-	@echo "Compiling" $<
-	@$(CC) -o $@ -c $< $(CFLAGS)
+%.o:%.c
+	$(CC) -o $@ -c $< $(CFLAGS)
 
 all:	$(NAME) $(NAME_SERVER)
 
 clean:
-	@echo -n "[ "
-	@tput setaf 2; tput bold; echo -n "OK"; tput sgr0
-	@echo -n " ] "
-	@echo "Removing OBJ files ..."
-	@$(RM) $(OBJ)
-	@$(RM) $(OBJ_SERVER)
+	$(RM) $(OBJ)
+	$(RM) $(OBJ_SERVER)
 
 fclean:	clean
-	@echo -n "[ "
-	@tput setaf 2; tput bold; echo -n "OK" ; tput sgr0
-	@echo -n " ] "
-	@echo "Deleting binaries ..."
-	@$(RM) $(NAME)
-	@$(RM) $(NAME_SERVER)
+	$(RM) $(NAME)
+	$(RM) $(NAME_SERVER)
 
 re:	fclean all
 

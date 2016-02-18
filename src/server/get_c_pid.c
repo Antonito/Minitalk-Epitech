@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sun Feb  7 15:15:28 2016 Antoine Baché
-** Last update Wed Feb 10 23:39:28 2016 Antoine Baché
+** Last update Thu Feb 18 23:30:47 2016 Antoine Baché
 */
 
 #include "server.h"
@@ -32,12 +32,14 @@ void	pid2(UNUSED int sig)
   capture_pid(0);
 }
 
-void	get_c_pid(void)
+int	get_c_pid(void)
 {
-  signal(SIGUSR1, &pid1);
-  signal(SIGUSR2, &pid2);
+  if (signal(SIGUSR1, &pid1) == SIG_ERR ||
+      signal(SIGUSR2, &pid2) == SIG_ERR)
+    return (1);
   while (g_infos.id != 32)
     {
       sleep(1);
     }
+  return (0);
 }

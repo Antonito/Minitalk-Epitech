@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Fri Jan 29 10:41:38 2016 Antoine Baché
-** Last update Wed Feb 10 23:40:37 2016 Antoine Baché
+** Last update Thu Feb 18 23:42:28 2016 Antoine Baché
 */
 
 #include "client.h"
@@ -41,7 +41,8 @@ int    	send_msg(char *pid_char, char *msg)
   if (msg == NULL)
     return (1);
   send_pid(pid, getpid());
-  signal(SIGUSR1, sig_hand);
+  if (signal(SIGUSR1, sig_hand) == SIG_ERR)
+    return (2);
   while (msg[++i] != '\0')
     {
       start_protocol(pid, msg[i]);

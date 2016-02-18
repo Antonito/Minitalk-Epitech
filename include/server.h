@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Fri Jan 29 10:12:32 2016 Antoine Baché
-** Last update Sun Feb  7 15:19:39 2016 Antoine Baché
+** Last update Thu Feb 18 23:32:27 2016 Antoine Baché
 */
 
 #ifndef SERVER_H_
@@ -21,7 +21,7 @@ typedef struct	s_infos
 
 extern t_infos	g_infos;
 
-void		get_c_pid(void);
+int		get_c_pid(void);
 void		my_bzero(void *, int);
 int		my_strlen(char *);
 int		my_strcmp(char *, char *);

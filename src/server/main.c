@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Fri Jan 29 10:03:58 2016 Antoine Baché
-** Last update Sun Feb  7 16:43:14 2016 Antoine Baché
+** Last update Thu Feb 18 23:31:28 2016 Antoine Baché
 */
 
 #include "server.h"
@@ -30,11 +30,13 @@ int	server(int args)
     {
       if (g_infos.id == 0)
 	{
-	  get_c_pid();
+	  if (get_c_pid())
+	    return (1);
 	  if (g_infos.pid != 0)
 	    {
-	      signal(SIGUSR1, &sig_1);
-	      signal(SIGUSR2, &sig_2);
+	      if (signal(SIGUSR1, &sig_1) == SIG_ERR ||
+		  signal(SIGUSR2, &sig_2) == SIG_ERR)
+		return (1);
 	    }
 	}
       if (usleep(100000) == 0)

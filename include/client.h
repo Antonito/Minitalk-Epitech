@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Fri Jan 29 10:01:08 2016 Antoine Baché
-** Last update Wed Feb 10 23:24:28 2016 Antoine Baché
+** Last update Thu Feb 18 23:41:00 2016 Antoine Baché
 */
 
 #ifndef CLIENT_H_

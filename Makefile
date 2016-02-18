@@ -5,7 +5,7 @@
 ## Login   <bache_a@epitech.net>
 ##
 ## Started on  Fri Jan 29 09:43:20 2016 Antoine Baché
-## Last update Thu Feb 18 15:37:29 2016 Antoine Baché
+## Last update Thu Feb 18 16:24:42 2016 Antoine Baché
 ##
 
 DEBUG=			no
@@ -52,23 +52,47 @@ OBJ=			$(SRC:.c=.o)
 OBJ_SERVER=		$(SRC_SERVER:.c=.o)
 
 $(NAME_SERVER):	$(NAME) $(OBJ_SERVER)
-	$(CC) $(OBJ_SERVER) -o $(NAME_SERVER)
+	@echo -n "[ "
+	@echo -n "OK"
+	@echo -n " ] "
+	@echo "Compiled server"
+	@$(CC) $(OBJ_SERVER) -o $(NAME_SERVER)
 
 $(NAME):	$(OBJ)
-	$(CC) $(OBJ) -o $(NAME)
+	@echo -n "[ "
+	@echo -n "OK"
+	@echo -n " ] "
+	@echo "Compiled client"
+	@$(CC) $(OBJ) -o $(NAME)
 
 %.o:%.c
-	$(CC) -o $@ -c $< $(CFLAGS)
+	@echo -n "[ "
+	@echo -n "OK"
+	@echo -n " ] "
+	@echo "Compiling" $<
+	@$(CC) -o $@ -c $< $(CFLAGS)
 
 all:	$(NAME) $(NAME_SERVER)
 
 clean:
-	$(RM) $(OBJ)
-	$(RM) $(OBJ_SERVER)
+	@echo -n "[ "
+	@echo -n "OK"
+	@echo -n " ] "
+	@echo "Removing OBJ files ..."
+	@$(RM) $(OBJ)
+	@$(RM) $(OBJ_SERVER)
 
 fclean:	clean
-	$(RM) $(NAME)
-	$(RM) $(NAME_SERVER)
+	@echo -n "[ "
+	@echo -n "OK"
+	@echo -n " ] "
+	@echo "Deleting" $(NAME) "..."
+	@$(RM) $(NAME)
+	@echo -n "[ "
+	@echo -n "OK"
+	@echo -n " ] "
+	@echo "Deleting" $(NAME_SERVER) "..."
+	@$(RM) $(NAME_SERVER)
 
 re:	fclean all
 

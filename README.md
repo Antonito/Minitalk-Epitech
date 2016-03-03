@@ -15,4 +15,4 @@ Bonus:
       - Low CPU usage
       - Test script, in "tests" folder
 
-Grade : 100 / 100
+Grade : 22 / 20
